@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Bunga Majemuk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Kalkulator Bunga Majemuk</h1>
+
+<label for="principal">Jumlah Awal (Principal):</label>
+<input type="tel" id="principal" placeholder="Contoh: 1.000" required>
+
+<label for="rate">Tingkat Bunga (%):</label>
+<input type="tel" id="rate" placeholder="Contoh: 5" required>
+
+<label for="time">Lama Waktu:</label>
+<input type="tel" id="time" placeholder="Contoh: 10" required>
+
+<button onclick="calculateCompoundInterest()">Hitung</button>
+
+<div id="result"></div>
+
+<script>
+    function formatNumber(num) {
+        num = num.toString().replace(".", ",");
+        const parts = num.split(","); 
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, "."); 
+        return parts.join(","); 
+    }
+
+    function formatInput(input) {
+        let value = input.value.replace(/[^0-9]/g, "");
+        if (value) {
+            input.value = formatNumber(value);
+        }
+    }
+
+    function calculateCompoundInterest() {
+        const principal = parseFloat(document.getElementById('principal').value.replace(/\./g, ''));
+        const rate = parseFloat(document.getElementById('rate').value.replace(/\./g, '')) / 100;
+        const time = parseFloat(document.getElementById('time').value.replace(/\./g, ''));
+
+        const amount = principal * Math.pow((1 + rate), time);
+        const formattedAmount = formatNumber(amount.toFixed(2));
+
+        document.getElementById('result').innerHTML = `Jumlah Akhir: ${formattedAmount}`;
+    }
+
+    // Menambahkan event listener ke semua input saat halaman dimuat
+    window.onload = function() {
+        const inputs = document.querySelectorAll('input[type="tel"]'); // Pilih semua input bertipe tel
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                formatInput(this);
+            });
+        });
+    };
+</script>
+
+</body>
+</html>
