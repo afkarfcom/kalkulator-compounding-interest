@@ -1,0 +1,76 @@
+/* Reset CSS untuk memastikan konsistensi di berbagai browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef; /* Warna latar belakang cerah */
+    color: #333; /* Warna teks gelap untuk kontras */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ff6f61; /* Warna merah coral untuk header */
+    margin-bottom: 20px;
+    font-size: 28px; /* Ukuran font lebih besar */
+}
+
+label {
+    font-weight: bold; /* Tebalkan label */
+    margin-bottom: 5px;
+    color: #333; /* Warna gelap pada label */
+}
+
+input[type="tel"] {
+    width: 100%;
+    padding: 10px; /* Ruang di dalam input */
+    border: 1px solid #ccc; /* Border abu-abu */
+    border-radius: 8px; /* Sudut membulat */
+    background-color: #ffffff; /* Warna putih untuk latar belakang input */
+    color: #333; /* Warna teks gelap untuk input */
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transisi saat fokus */
+}
+
+input[type="tel"]:focus {
+    border-color: #ff6f61; /* Ganti warna border saat fokus */
+    outline: none; /* Hilangkan outline default */
+}
+
+button {
+    width: 10%;
+    padding: 8px; /* Sesuaikan padding tombol */
+    background-color: #4caf50; /* Warna hijau terang untuk button */
+    color: white;
+    border: none; /* Hilangkan border default */
+    border-radius: 8px; /* Sudut membulat */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    cursor: pointer; /* Ganti cursor saat hover */
+    transition: background-color 0.3s, transform 0.3s; /* Transisi warna dan transformasi */
+    margin-top: 10px; /* Spasi tambahan di atas button */
+}
+
+button:hover {
+    background-color: #45a049; /* Warna lebih gelap saat hover */
+    transform: scale(1.05); /* Efek pembesaran saat hover */
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffffff; /* Latar belakang putih untuk hasil */
+    border-radius: 8px; /* Sudut membulat */
+    font-weight: bold;
+    text-align: center; /* Rata tengah untuk hasil */
+    border: 1px solid #ccc; /* Border abu-abu */
+    color: #4caf50; /* Warna hijau untuk teks hasil */
+    width: 100%;
+    max-width: 400px; /* Lebar maksimum untuk responsif */
+}
